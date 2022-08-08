@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/richardherchuk/Developer/microFrontendService.Sample/microFrontendService.Sample.csproj": {}
+  },
+  "projects": {
+    "/Users/richardherchuk/Developer/microFrontendService.Sample/microFrontendService.Sample.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/richardherchuk/Developer/microFrontendService.Sample/microFrontendService.Sample.csproj",
+        "projectName": "microFrontendService.Sample",
+        "projectPath": "/Users/richardherchuk/Developer/microFrontendService.Sample/microFrontendService.Sample.csproj",
+        "packagesPath": "/Users/richardherchuk/.nuget/packages/",
+        "outputPath": "/Users/richardherchuk/Developer/microFrontendService.Sample/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/richardherchuk/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://mynexusdevelopment.pkgs.visualstudio.com/8b7335dc-ff8f-4310-a3fd-427da486d2f4/_packaging/myNexus_NexLync_Platform/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
