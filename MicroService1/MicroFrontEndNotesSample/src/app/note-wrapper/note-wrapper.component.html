@@ -1,0 +1,6 @@
+<div class="border-spacing">
+    <notelist-widget (noteIdSelected)="handleSelectNote($event)"></notelist-widget>
+    <div *ngIf="noteId && noteId !== 0" class="view-spacing">
+        <noteview-widget [noteId]="noteId"></noteview-widget>
+    </div>
+</div>
