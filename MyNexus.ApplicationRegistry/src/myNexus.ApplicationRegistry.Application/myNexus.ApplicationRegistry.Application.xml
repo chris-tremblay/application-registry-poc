@@ -1,0 +1,705 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>myNexus.ApplicationRegistry.Application</name>
+    </assembly>
+    <members>
+        <member name="T:MyNexus.ApplicationRegistry.Application.AssemblyMarker">
+            <summary>
+              A well-known class used for assembly discovery.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Behaviors.LoggingBehavior`2">
+            <summary>
+              A behavior used to log requests and any exceptions that occur.
+            </summary>
+            <typeparam name="TRequest">The type of request.</typeparam>
+            <typeparam name="TResponse">The type of response.</typeparam>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Behaviors.LoggingBehavior`2.Handle(`0,System.Threading.CancellationToken,MediatR.RequestHandlerDelegate{`1})">
+            <summary>
+              Logs the current request, as well as any exception that may occur.
+            </summary>
+            <param name="request">The request to authorize.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <param name="next">The next request in the pipeline.</param>
+            <returns>The response from the request handler.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Behaviors.MetricsBehavior`2">
+            <summary>
+              A behavior used to publish metrics for each request.
+            </summary>
+            <typeparam name="TRequest">The type of request.</typeparam>
+            <typeparam name="TResponse">The type of response.</typeparam>
+        </member>
+        <member name="F:MyNexus.ApplicationRegistry.Application.Behaviors.MetricsBehavior`2.metrics">
+            <summary>
+              The metrics instance we write to.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Behaviors.MetricsBehavior`2.#ctor(App.Metrics.IMetrics)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Behaviors.MetricsBehavior`2"/> class.
+            </summary>
+            <param name="metrics">The metrics instance we write to.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Behaviors.MetricsBehavior`2.Handle(`0,System.Threading.CancellationToken,MediatR.RequestHandlerDelegate{`1})">
+            <summary>
+              Writes metrics about the the current request.
+            </summary>
+            <param name="request">The request to authorize.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <param name="next">The next request in the pipeline.</param>
+            <returns>The response from the request handler.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Behaviors.ValidateBehavior`2">
+            <summary>
+              A behavior used to validate requests.
+            </summary>
+            <typeparam name="TRequest">The type of request.</typeparam>
+            <typeparam name="TResponse">The type of response.</typeparam>
+        </member>
+        <member name="F:MyNexus.ApplicationRegistry.Application.Behaviors.ValidateBehavior`2.validators">
+            <summary>
+              The collection of validators for the request.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Behaviors.ValidateBehavior`2.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.IValidator{`0}})">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Behaviors.ValidateBehavior`2"/> class.
+            </summary>
+            <param name="validators">The collection of validators for the request.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Behaviors.ValidateBehavior`2.Handle(`0,System.Threading.CancellationToken,MediatR.RequestHandlerDelegate{`1})">
+            <summary>
+              Validates the current request, or throws <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/>.
+            </summary>
+            <param name="request">The request to authorize.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <param name="next">The next request in the pipeline.</param>
+            <returns>The response from the request handler.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.CommandBase">
+            <summary>
+              An abstract base command class that provides implementations of various required interfaces.
+            </summary>
+            <remarks>Inherit from this base class when the command does NOT return a response.</remarks>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.CommandBase.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.CommandBase"/> class.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.CommandBase.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.CommandBase"/> class.
+            </summary>
+            <param name="tenantId">The tenant identifier.</param>
+            <param name="correlationId">A unique correlation identifier provided by the client.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1">
+            <summary>
+              An abstract base command class that provides implementations of various required interfaces.
+            </summary>
+            <typeparam name="TResponse">The response type returned by the command.</typeparam>
+            <remarks>Inherit from this base class when the command returns a response.</remarks>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1"/> class.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1"/> class.
+            </summary>
+            <param name="tenantId">The tenant identifier.</param>
+            <param name="correlationId">A unique correlation identifier provided by the client.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1.CorrelationId">
+            <summary>
+              Gets or sets the correlation identifier for the request.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Commands.CommandBase`1.TenantId">
+            <summary>
+              Gets or sets the tenant identifier for the request.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> of the request.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand.Application">
+            <summary>
+              Gets or sets the <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> to save.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandHandler.#ctor(MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandHandler"/> class.
+            </summary>
+            <param name="repository">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository"/> used to locate the <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.MicroApplication"/>.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandHandler.Handle(MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand,System.Threading.CancellationToken)">
+            <summary>
+              Handles the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand"/>.
+            </summary>
+            <param name="request">The <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand"/> to handle.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommand"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutApplication.PutApplicationCommandValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand">
+            <summary>
+              Saves a new service domain for a dev service.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> of the request.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand.ServiceDomain">
+            <summary>
+              Gets or sets the Service Domain to save.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandHandler.#ctor(MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandHandler"/> class.
+            </summary>
+            <param name="repository">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository"/>..</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandHandler.Handle(MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand,System.Threading.CancellationToken)">
+            <summary>
+              Handles the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand"/>.
+            </summary>
+            <param name="request">The <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand"/> to handle.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommand"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Commands.PutServiceDomain.PutServiceDomainCommandValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.CorrelationId">
+            <summary>
+              An injectable correlation id, provided by the client as an http header and registered in the container by the
+              hosting process.
+            </summary>
+            <remarks>Classes can inject the <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> class to obtain the value.</remarks>
+        </member>
+        <member name="F:MyNexus.ApplicationRegistry.Application.CorrelationId.HttpHeaderName">
+            <summary>
+              The correlation id header name.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.CorrelationId.#ctor(System.Guid)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> class.
+            </summary>
+            <param name="value">The value of the correlation id.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.CorrelationId.Value">
+            <summary>
+              Gets the value of the correlation identifier.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException">
+            <summary>
+              The base exception class of the application layer.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor(System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor(System.Int32,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+            <param name="message">The error message that explains why the exception occurred.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor(System.Int32,System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException"/> class.
+            </summary>
+            <param name="info">Holds the serialized object data.</param>
+            <param name="context">Contains contextual information about the serialization.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Exceptions.BaseApplicationException.StatusCode">
+            <summary>
+              Gets or sets the exception status code.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException">
+            <summary>
+              The exception that is thrown when a command or query is invalid.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/> class.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="validationErrors">A collection of validation error messages.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="validationErrors">A collection of validation error messages.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException"/> class.
+            </summary>
+            <param name="info">Holds the serialized object data.</param>
+            <param name="context">Contains contextual information about the serialization.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Exceptions.InvalidCommandOrQueryException.ValidationErrors">
+            <summary>
+              Gets or sets the validation error messagess.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException">
+            <summary>
+              The exception that is thrown when a user is not authorized to perform an operation.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException.#ctor(System.Int32,System.String,System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException"/> class.
+            </summary>
+            <param name="statusCode">The status code of the exception, which should be 401 or 403.</param>
+            <param name="userId">The immutable user id.</param>
+            <param name="message">The message that explains why the exception occurred.</param>
+            <param name="inner">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException"/> class.
+            </summary>
+            <param name="info">Holds the serialized object data.</param>
+            <param name="context">Contains contextual information about the serialization.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException.UserId">
+            <summary>
+              Gets or sets the user that was not authorized.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException.BecauseForbidden(System.String,System.String,System.Exception)">
+            <summary>
+              A factory method used to create an <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException"/> with a 403 status code.
+            </summary>
+            <param name="userId">The user that was not authorized.</param>
+            <param name="message">The exception message.</param>
+            <param name="inner">The exception that is the cause of this exception.</param>
+            <returns><see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException.BecauseNotAuthorized(System.String,System.Exception)">
+            <summary>
+              A factory method used to create an <see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException"/> with a 401 status code.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="inner">The exception that is the cause of this exception.</param>
+            <returns><see cref="T:MyNexus.ApplicationRegistry.Application.Exceptions.NotAuthorizedException"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.IAmCorrelatable">
+            <summary>
+              An interface marking a feature as being correlatable.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.IAmCorrelatable.CorrelationId">
+            <summary>
+              Gets the correlationId.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.IAmMultiTenant">
+            <summary>
+              Indicates that a request supports tenants.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.IAmMultiTenant.TenantId">
+            <summary>
+              Gets the tenantId.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQuery">
+            <summary>
+              A query used to get a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> by the element name of one of its exposed widgets.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQuery.ElementName">
+            <summary>
+              Gets or sets the element name.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQueryHandler.#ctor(MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQueryHandler"/> class.
+            </summary>
+            <param name="repository">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository"/> used to locate the <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQueryValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByElementName.ApplicationByElementNameQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQuery">
+            <summary>
+              A query used to get a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> by its Fully-Qualified Application Name (Fqan).
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQuery.Fqan">
+            <summary>
+              Gets or sets the fully-qualified application name.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQueryHandler.#ctor(MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQueryHandler"/> class.
+            </summary>
+            <param name="repository">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository"/> used to locate the <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQueryValidator">
+            <summary>
+              Validator for <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ApplicationByFqan.ApplicationByFqanQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery">
+            <summary>
+              A query used to get a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> by its Fully-Qualified Application Name (Fqan).
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery.ApplicationName">
+            <summary>
+              Gets or sets the application name.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery.ElementName">
+            <summary>
+              Gets or sets the element name.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery.Tags">
+            <summary>
+              Gets or sets tags.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryHandler.#ctor(MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.IProvideElementSearchQueryData)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryHandler"/> class.
+            </summary>
+            <param name="repository">The <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.IProvideElementSearchQueryData"/> used to locate the <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.ElementSearchQueryResult"/>.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryHandler.Handle(MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery,System.Threading.CancellationToken)">
+            <summary>
+              Handles a <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery"/>.
+            </summary>
+            <param name="request">The <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery"/> to handle.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> used to cancel a pending request.</param>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryValidator">
+            <summary>
+              Validator for <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.ElementSearch.ElementSearchQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQuery">
+            <summary>
+              A query used to get a list of domain names that should be added to the CORS policy of other services.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryHandler.#ctor(MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryHandler"/> class.
+            </summary>
+            <param name="devServiceRepository">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository"/>.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryHandler.Handle(MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetAllServiceDomains.GetAllServiceDomainsQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQuery">
+            <summary>
+              A query used to get a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> by the element name of one of its exposed widgets.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQueryHandler.#ctor(MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsElementList.IProvideGetApplicationsElementListQueryData)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQueryHandler"/> class.
+            </summary>
+            <param name="repository">
+              The <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsElementList.IProvideGetApplicationsElementListQueryData"/> used to locate the <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.
+            </param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQueryValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsElementList.GetApplicationsElementListQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQuery">
+            <summary>
+              A query used to get a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> by the element name of one of its exposed widgets.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQueryHandler.#ctor(MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsList.IProvideGetApplicationsListQueryData)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQueryHandler"/> class.
+            </summary>
+            <param name="repository">
+              The <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsList.IProvideGetApplicationsListQueryData"/> used to locate the <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.
+            </param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQueryValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetApplicationsList.GetApplicationsListQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQuery">
+            <summary>
+              A query used to get a list of domain names that should be added to the CORS policy of other services.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQuery.#ctor(System.String,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQuery"/> class.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> used to track the query through the system.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryHandler">
+            <summary>
+              The handler for the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryHandler.#ctor(MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.IProvideGetCorsAllowedOriginsQueryData,MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryHandler"/> class.
+            </summary>
+            <param name="provider">
+              The <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.IProvideGetCorsAllowedOriginsQueryData"/> used to locate generate the domain list.
+            </param>
+            <param name="devServiceRepository">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository"/>.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryHandler.Handle(MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryValidator">
+            <summary>
+              Validator For <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQuery"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryValidator.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Application.Queries.GetCorsAllowedOrigins.GetCorsAllowedOriginsQueryValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.Queries.QueryBase`1">
+            <summary>
+              A base class for queries.
+            </summary>
+            <typeparam name="TResponse">The type of the expected response.</typeparam>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Application.ServiceCollectionExtensions">
+            <summary>
+              Extension methods for <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> used to register dependencies with the IoC container.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.ServiceCollectionExtensions.AddApplicationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              Registers all the application layer dependencies with the IoC container.
+            </summary>
+            <param name="services">The container service collection.</param>
+            <param name="configuration">The application configuration.</param>
+            <returns>The populated <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+    </members>
+</doc>

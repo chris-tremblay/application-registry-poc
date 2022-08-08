@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D0AF8177-9C04-4772-9B0E-89C2756EB4E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{715B1E9B-8052-47B5-AC39-0B23759ADAEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{7A5974DA-86A6-4ADE-A7E4-C6FE96E7843C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myNexus.ApplicationRegistry.Application", "src\myNexus.ApplicationRegistry.Application\myNexus.ApplicationRegistry.Application.csproj", "{A1837E5B-1459-4536-8161-18CAC77CD894}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myNexus.ApplicationRegistry.Data", "src\myNexus.ApplicationRegistry.Data\myNexus.ApplicationRegistry.Data.csproj", "{668016CA-1EDE-417F-A1DD-B305049FF1B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myNexus.ApplicationRegistry.Domain", "src\myNexus.ApplicationRegistry.Domain\myNexus.ApplicationRegistry.Domain.csproj", "{AD1D06E8-F16B-44CE-A834-4455D2F0E2DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myNexus.ApplicationRegistry.Api", "src\myNexus.ApplicationRegistry.Api\myNexus.ApplicationRegistry.Api.csproj", "{663105B5-1EC8-4CDC-8D34-E6C657251757}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myNexus.ApplicationRegistry.Api.UnitTests", "tests\myNexus.ApplicationRegistry.Api.UnitTests\myNexus.ApplicationRegistry.Api.UnitTests.csproj", "{3CA89363-D8AB-49EE-84C6-BDDBCD7A1936}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myNexus.ApplicationRegistry.Application.UnitTests", "tests\myNexus.ApplicationRegistry.Application.UnitTests\myNexus.ApplicationRegistry.Application.UnitTests.csproj", "{23B83333-0A01-4E7D-AEE2-61C03C3395F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNexus.ApplicationRegistry.IntegrationTests", "tests\MyNexus.ApplicationRegistry.IntegrationTests\MyNexus.ApplicationRegistry.IntegrationTests.csproj", "{3CE3895B-47AE-43B8-89B7-06C247A29E31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1837E5B-1459-4536-8161-18CAC77CD894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1837E5B-1459-4536-8161-18CAC77CD894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1837E5B-1459-4536-8161-18CAC77CD894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1837E5B-1459-4536-8161-18CAC77CD894}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668016CA-1EDE-417F-A1DD-B305049FF1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668016CA-1EDE-417F-A1DD-B305049FF1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668016CA-1EDE-417F-A1DD-B305049FF1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668016CA-1EDE-417F-A1DD-B305049FF1B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1D06E8-F16B-44CE-A834-4455D2F0E2DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1D06E8-F16B-44CE-A834-4455D2F0E2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1D06E8-F16B-44CE-A834-4455D2F0E2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1D06E8-F16B-44CE-A834-4455D2F0E2DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663105B5-1EC8-4CDC-8D34-E6C657251757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663105B5-1EC8-4CDC-8D34-E6C657251757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663105B5-1EC8-4CDC-8D34-E6C657251757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663105B5-1EC8-4CDC-8D34-E6C657251757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA89363-D8AB-49EE-84C6-BDDBCD7A1936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA89363-D8AB-49EE-84C6-BDDBCD7A1936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA89363-D8AB-49EE-84C6-BDDBCD7A1936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA89363-D8AB-49EE-84C6-BDDBCD7A1936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B83333-0A01-4E7D-AEE2-61C03C3395F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B83333-0A01-4E7D-AEE2-61C03C3395F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B83333-0A01-4E7D-AEE2-61C03C3395F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B83333-0A01-4E7D-AEE2-61C03C3395F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE3895B-47AE-43B8-89B7-06C247A29E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE3895B-47AE-43B8-89B7-06C247A29E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE3895B-47AE-43B8-89B7-06C247A29E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE3895B-47AE-43B8-89B7-06C247A29E31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1837E5B-1459-4536-8161-18CAC77CD894} = {D0AF8177-9C04-4772-9B0E-89C2756EB4E7}
+		{668016CA-1EDE-417F-A1DD-B305049FF1B5} = {D0AF8177-9C04-4772-9B0E-89C2756EB4E7}
+		{AD1D06E8-F16B-44CE-A834-4455D2F0E2DD} = {D0AF8177-9C04-4772-9B0E-89C2756EB4E7}
+		{663105B5-1EC8-4CDC-8D34-E6C657251757} = {D0AF8177-9C04-4772-9B0E-89C2756EB4E7}
+		{3CA89363-D8AB-49EE-84C6-BDDBCD7A1936} = {715B1E9B-8052-47B5-AC39-0B23759ADAEB}
+		{23B83333-0A01-4E7D-AEE2-61C03C3395F1} = {715B1E9B-8052-47B5-AC39-0B23759ADAEB}
+		{3CE3895B-47AE-43B8-89B7-06C247A29E31} = {715B1E9B-8052-47B5-AC39-0B23759ADAEB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C202EC46-1DFA-4E75-A450-DA72B037F623}
+	EndGlobalSection
+EndGlobal

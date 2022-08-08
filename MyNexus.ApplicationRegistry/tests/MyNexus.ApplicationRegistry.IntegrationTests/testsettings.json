@@ -1,0 +1,5 @@
+{
+  "connectionStrings": {
+    "MyNexus.ApplicationRegistry.Data": "Server=localhost;Integrated Security=True;Initial Catalog=MyNexus.ApplicationRegistry;MultipleActiveResultSets=true;"
+  }
+}

@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>myNexus.ApplicationRegistry.Api</name>
+    </assembly>
+    <members>
+        <member name="T:MyNexus.ApplicationRegistry.Web.AssemblyMarker">
+            <summary>
+              A well-known class used for assembly discovery.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.Authorization.ApiKeyRequirementHandler">
+            <summary>
+              Handler for the <see cref="T:MyNexus.ApplicationRegistry.Web.Authorization.ApiKeyRequirement"/> for the <see cref="F:MyNexus.ApplicationRegistry.Web.Configuration.AuthorizationConfiguration.ApiPolicyName"/> policy.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.Configuration.AuthorizationConfiguration">
+            <summary>
+              Contains the authorization configuration.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.Configuration.CorsConfig">
+            <summary>
+              Contains configuration settings for the Cors Configuration.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsConfig.SectionName">
+            <summary>
+              Gets the section name containing the configuration settings.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsConfig.Policies">
+            <summary>
+              Gets or sets the list of Cors Policies.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig.AllowCredentials">
+            <summary>
+              Gets or sets a value indicating whether credentials are allowed.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig.AllowHeaders">
+            <summary>
+              Gets or sets the list of allowed headers.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig.AllowMethods">
+            <summary>
+              Gets or sets the list of allowed methods.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig.AllowOrigins">
+            <summary>
+              Gets or sets the list of allowed origins.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig.Name">
+            <summary>
+              Gets or sets the name of the policy.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController.#ctor(MyNexus.ApplicationRegistry.Data.TenantId,Microsoft.Extensions.Logging.ILogger{MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController},MediatR.IMediator,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController"/> class.
+            </summary>
+            <param name="tenantId">The <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/> of the tenant making the request.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> to use for logging.</param>
+            <param name="mediator">The <see cref="T:MediatR.IMediator"/> to use for logging.</param>
+            ///
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> for the current request.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController.GetApplication(System.String)">
+            <summary>
+              Gets a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/> by its fully-qualified application name.
+            </summary>
+            <param name="fqan">The fully-qualified name of the application.</param>
+            <returns>Returns a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController.GetApplications">
+            <summary>
+              Gets a list of application names.
+            </summary>
+            <returns>Returns a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController.GetApplicationsElementNames">
+            <summary>
+              Gets a list of application element names.
+            </summary>
+            <returns>Returns a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController.PutApplication(System.String,MyNexus.ApplicationRegistry.Domain.Models.MicroApplication)">
+            <summary>
+              Puts a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.
+            </summary>
+            <param name="fqan">The fully-qualified name of the application.</param>
+            <param name="microApp">The micro-application to register.</param>
+            <returns>Returns a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.CorsController.#ctor(MyNexus.ApplicationRegistry.Data.TenantId,Microsoft.Extensions.Logging.ILogger{MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController},MediatR.IMediator,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Web.Controllers.CorsController"/> class.
+            </summary>
+            <param name="tenantId">The <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/> of the tenant making the request.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> to use for logging.</param>
+            <param name="mediator">The <see cref="T:MediatR.IMediator"/> to use for logging.</param>
+            ///
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> for the current request.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.CorsController.GetCorsAllowedOriginsList">
+            <summary>
+              Gets a list of allowed origins that should be included in a CORS policy to allow cross communication
+              between applications and widgets.
+            </summary>
+            <returns>Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ServiceDomainsController.#ctor(MyNexus.ApplicationRegistry.Data.TenantId,Microsoft.Extensions.Logging.ILogger{MyNexus.ApplicationRegistry.Web.Controllers.ApplicationsController},MediatR.IMediator,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Web.Controllers.ServiceDomainsController"/> class.
+            </summary>
+            <param name="tenantId">The <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/> of the tenant making the request.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> to use for logging.</param>
+            <param name="mediator">The <see cref="T:MediatR.IMediator"/> to use for logging.</param>
+            ///
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> for the current request.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ServiceDomainsController.Add(System.String)">
+            <summary>
+              Gets a list of allowed origins that should be included in a CORS policy to allow cross communication
+              between applications and widgets.
+            </summary>
+            <param name="serviceDomain">The serviceDomain to add to the repository.</param>
+            <returns>Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controllers.ServiceDomainsController.GetAllServiceDomains">
+            <summary>
+              Gets a list of all service domains.
+            </summary>
+            <returns>Returns an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controller.ElementsController.#ctor(MyNexus.ApplicationRegistry.Data.TenantId,Microsoft.Extensions.Logging.ILogger{MyNexus.ApplicationRegistry.Web.Controller.ElementsController},MediatR.IMediator,MyNexus.ApplicationRegistry.Application.CorrelationId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Web.Controller.ElementsController"/> class.
+            </summary>
+            <param name="tenantId">The <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/> of the tenant.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> to use for logging.</param>
+            <param name="mediator">The <see cref="T:MediatR.IMediator"/> to use to handle command and queries.</param>
+            <param name="correlationId">The <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> for the current request.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controller.ElementsController.GetElementMetaData(System.String)">
+            <summary>
+              Gets the script containing the <paramref name="elementName"/> definition.
+            </summary>
+            <param name="elementName">The name of the element to get the script definition for.</param>
+            <returns>Returns the javascript for the specified <paramref name="elementName"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Controller.ElementsController.Query(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+              Searches for applications matching the specified search options.
+            </summary>
+            <param name="applicationName">The name of the application.</param>
+            <param name="elementName">The partial or full name of the element.</param>
+            <param name="tags">A list of tags to include in the search.</param>
+            <returns>Returns the javascript for the specified <paramref name="tags"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.Extensions.ExecuteRequest">
+            <summary>
+              Extension method for controller.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.Extensions.ExecuteRequest.Execute``2(Microsoft.AspNetCore.Mvc.ControllerBase,Microsoft.Extensions.Logging.ILogger{``1},System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+              Executes a command or query, with standard error handling.
+            </summary>
+            <typeparam name="TResponse">type of return object.</typeparam>
+            <typeparam name="TController">type of the controller executing this request..</typeparam>
+            <param name="controller">controller making the request.</param>
+            <param name="logger">Instance of logger from MS logging.</param>
+            <param name="action">The command or query to execute.</param>
+            <returns>The result of the command or query.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.SerilogJsonFormatter">
+            <summary>
+              A custom json formatter based on Serilog's JsonFormatter.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.SerilogJsonFormatter.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Web.SerilogJsonFormatter"/> class.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions">
+            <summary>
+              The service collection extensions.
+            </summary>
+            <summary>
+              The service collection extensions.
+            </summary>
+            <summary>
+              Contains extensions for an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> object.
+            </summary>
+            <summary>
+              The service collection extensions.
+            </summary>
+            <summary>
+              The service collection extensions.
+            </summary>
+            <summary>
+              The service collection extensions.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions.AddApiKey(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              Adds the <see cref="T:MyNexus.ApplicationRegistry.Web.Authorization.ApiKeyRequirement"/> class to the container so it can be injected.
+            </summary>
+            <param name="services">ServiceCollection reference.</param>
+            <param name="configuration"><see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.</param>
+            <returns>IServicecollection <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions.AddCorrelationId(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+              Adds the <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> class to the container so it can be injected.
+            </summary>
+            <param name="services">ServiceCollection reference.</param>
+            <returns>IServicecollection <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions.GetCorrelationId(System.IServiceProvider)">
+            <summary>
+              Creates an injectable <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> by grabbing the value out of the 'gsfs-correlation-id'
+              HTTP header.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions.AddCors(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              Adds the Cors policies to the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to which to add the Cors configuration.</param>
+            <param name="configuration">
+              The <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> containing the <see cref="T:MyNexus.ApplicationRegistry.Web.Configuration.CorsConfig"/> settings.
+            </param>
+            <returns>Returns the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to which the Cors services were added.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions.Build(MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig,Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder)">
+            <summary>
+              Builds a Cors colicy from a <see cref="T:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig"/> object.
+            </summary>
+            <param name="config">The <see cref="T:MyNexus.ApplicationRegistry.Web.Configuration.CorsPolicyConfig"/> object from which to build the Cors Policy.</param>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder"/> object used to build the Cors policy.</param>
+            <returns>Returns the <see cref="T:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder"/>.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ServiceCollectionExtensions.AddMetrics(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+              Adds the <see cref="T:MyNexus.ApplicationRegistry.Application.CorrelationId"/> class to the container so it can be injected.
+            </summary>
+            <param name="services">ServiceCollection reference.</param>
+            <returns>IServicecollection <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Web.ApplicationBuilderExtensions">
+            <summary>
+              Contains extensions for an <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> object.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Web.ApplicationBuilderExtensions.UseCors(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              Adds Cors policies to the pipeline.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> object that will be operated on.</param>
+            <param name="configuration">The <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> containing the Cors configuration.</param>
+            <returns>Returns the <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> instance.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Application.Extensions.HostExtensions.MigrateDatabase(Microsoft.Extensions.Hosting.IHost)">
+            <summary>
+              Migrates the database.
+            </summary>
+            <param name="host">The <see cref="T:Microsoft.Extensions.Hosting.IHost"/> that is being extended.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.Hosting.IHost"/>.</returns>
+        </member>
+    </members>
+</doc>

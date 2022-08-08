@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>myNexus.ApplicationRegistry.Data</name>
+    </assembly>
+    <members>
+        <member name="T:MyNexus.ApplicationRegistry.Data.AssemblyMarker">
+            <summary>
+              A well-known class used for assembly discovery.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException">
+            <summary>
+              The base exception class of the data layer.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.Int32,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+            <param name="message">The error message that explains why the exception occurred.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.Int32,System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+            <param name="resource">The resource that was attempted to be modified.</param>
+            <param name="message">The error message that explains why the exception occurred.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.Int32,System.String,System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="statusCode">A status code used to further define the exception.</param>
+            <param name="resource">The resource that was attempted to be modified.</param>
+            <param name="message">The error message that explains why the exception occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException"/> class.
+            </summary>
+            <param name="info">Holds the serialized object data.</param>
+            <param name="context">Contains contextual information about the serialization.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.Resource">
+            <summary>
+              Gets or sets the resource that was attempted to be modified.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Exceptions.BaseDataException.StatusCode">
+            <summary>
+              Gets or sets the exception status code.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException">
+            <summary>
+              The exception that is thrown if when a data layer operation fails.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException"/> class.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException"/> class.
+            </summary>
+            <param name="resource">The resource that was attempted to be modified.</param>
+            <param name="operation">The query that was executed.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException.#ctor(System.String,System.String,System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException"/> class.
+            </summary>
+            <param name="resource">The resource that was attempted to be modified.</param>
+            <param name="operation">The query that was executed.</param>
+            <param name="message">A message that explains the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException"/> class.
+            </summary>
+            <param name="resource">The resource that was attempted to be modified.</param>
+            <param name="operation">The query that was executed.</param>
+            <param name="message">A message that explains the exception.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Exceptions.OperationFailedException.Operation">
+            <summary>
+              Gets or sets the query that failed.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException">
+            <summary>
+              The exception that is thrown if a resource is not found.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException.#ctor(System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException"/> class.
+            </summary>
+            <param name="resource">The resource that was attempted to be accessed.</param>
+            <param name="identifier">The resource unique identifier.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException.#ctor(System.Type,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException"/> class.
+            </summary>
+            <param name="resourceType">The <see cref="T:System.Type"/> of the resource that was attempted to be accessed.</param>
+            <param name="identifier">The resource unique identifier.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException"/> class.
+            </summary>
+            <param name="resource">The resource that was attempted to be modified.</param>
+            <param name="identifier">The resource unique identifier.</param>
+            <param name="message">A message that explains the exception.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException"/> class.
+            </summary>
+            <param name="info">Holds the serialized object data.</param>
+            <param name="context">Contains contextual information about the serialization.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Exceptions.ResourceNotFoundException.Identifier">
+            <summary>
+              Gets or sets the unique identifier of the resource.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Extensions.ConnectionStrings">
+            <summary>
+              A static helper class for dealing with connection strings.
+            </summary>
+        </member>
+        <member name="F:MyNexus.ApplicationRegistry.Data.Extensions.ConnectionStrings.RegistryDb">
+            <summary>
+              Defines the name of the primary connection string.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Extensions.ConnectionStrings.GetConnectionString(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              Gets the value of the primary connection string.
+            </summary>
+            <param name="configuration">
+              An <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object containing the application configuration settings.
+            </param>
+            <returns>
+              Returns the connection string for the default database from the <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object.
+            </returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Extensions.ConnectionStrings.GetDatabaseName(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              This method used by the data migrations.
+            </summary>
+            <param name="configuration">
+              An <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object containing the application configuration settings.
+            </param>
+            <returns>Returns the database name from an <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object.</returns>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Extensions.ConnectionStrings.GetMasterDatabaseConnectionString(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              This method used by the data migrations.
+            </summary>
+            <param name="configuration">
+              An <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object containing the application configuration settings.
+            </param>
+            <returns>
+              Returns the connection string to the master database from the <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object.
+            </returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Migrations.Initial_Migration">
+            <summary>
+              The initial database migration.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2019121201">
+            <summary>
+              The initial database migration.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2020080301">
+            <summary>
+              Adds support for widget tags.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2020080301.Up">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2020080501">
+            <summary>
+              Adds Description column to the widgets ApplicationWidgets table.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2020080501.Up">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2020100201">
+            <summary>
+              Adds DevServices table.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Migrations.Migration_2020100201.Up">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Migrator">
+            <summary>
+              The class that is responsible for running data migrations.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Migrator.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{MyNexus.ApplicationRegistry.Data.Migrator},FluentMigrator.Runner.IMigrationRunner)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Migrator"/> class.
+            </summary>
+            <param name="configuration">The application configuration settings.</param>
+            <param name="migrationRunner">The migration runner.</param>
+            <param name="logger">A <see cref="T:Microsoft.Extensions.Logging.ILogger"/>.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Migrator.RunMigrations">
+            <summary>
+              Runs all new migrations.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.ElementSearchQueryResult">
+            <summary>
+              A record returned from an <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.IProvideElementSearchQueryData"/>.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.ElementSearchQueryResult.ApplicationName">
+            <summary>
+              Gets or sets the application name.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.ElementSearchQueryResult.Description">
+            <summary>
+              Gets or sets the description.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.ElementSearchQueryResult.ElementName">
+            <summary>
+              Gets or sets the element name.
+            </summary>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.ElementSearchQueryResult.Tags">
+            <summary>
+              Gets or sets the tags.
+            </summary>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.IProvideElementSearchQueryData">
+            <summary>
+              Queries a list of registered elements (widgets) from the repository.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.IProvideElementSearchQueryData.GetElements(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+              Queries a list of registered elements (widgets) from the repository.
+            </summary>
+            <param name="applicationName">The name of the application.</param>
+            <param name="elementName">The full or partial name of elemments to include in the results.</param>
+            <param name="tags">A list of tags to include in the results.</param>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.SqlElementSearchQueryDataProvider">
+            <summary>
+              A Sql Server implementation of the <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.IProvideElementSearchQueryData"/> interface.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.SqlElementSearchQueryDataProvider.#ctor(MyNexus.ApplicationRegistry.Data.TenantId,System.Data.IDbConnection)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.ElementSearch.SqlElementSearchQueryDataProvider"/> class.
+            </summary>
+            <param name="tenantId">The <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/>.</param>
+            <param name="cnn">The <see cref="T:System.Data.SqlClient.SqlConnection"/> to the database.</param>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsElementList.IProvideGetApplicationsElementListQueryData">
+            <summary>
+              Queries a list of registered applications from the Applications repository.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsElementList.IProvideGetApplicationsElementListQueryData.GetApplicationsElementNames">
+            <summary>
+              Queries a list of Application Names from the Applications repository.
+            </summary>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsList.IProvideGetApplicationsListQueryData">
+            <summary>
+              Queries a list of registered applications from the Applications repository.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.GetApplicationsList.IProvideGetApplicationsListQueryData.GetApplicationNames">
+            <summary>
+              Queries a list of Application Names from the Applications repository.
+            </summary>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.IProvideGetCorsAllowedOriginsQueryData">
+            <summary>
+              Provides data for the GetCorsAllowedOrigins query.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.IProvideGetCorsAllowedOriginsQueryData.GetScriptUrls">
+            <summary>
+              Gets an list of script urls from the registered applications.
+            </summary>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.SqlCorsAllowedOriginsDataProvider">
+            <summary>
+              A Sql Implementation of the <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.IProvideGetCorsAllowedOriginsQueryData"/> interface.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.SqlCorsAllowedOriginsDataProvider.#ctor(System.Data.IDbConnection,MyNexus.ApplicationRegistry.Data.TenantId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.SqlCorsAllowedOriginsDataProvider"/> class.
+            </summary>
+            <param name="cnn">The <see cref="T:System.Data.SqlClient.SqlConnection"/> instance.</param>
+            <param name="tenantId">The tenant identifier.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Queries.GetCorsAllowedOrigins.SqlCorsAllowedOriginsDataProvider.GetScriptUrls">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Repositories.SqlMicroApplicationRepository">
+            <summary>
+              A SQL Server implementation of the <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IMicroApplicationRepository"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlMicroApplicationRepository.#ctor(System.Data.IDbConnection)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Repositories.SqlMicroApplicationRepository"/> class.
+            </summary>
+            <param name="cnn">The <see cref="T:System.Data.IDbConnection"/> to use to execute queries.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlMicroApplicationRepository.GetMicroApplicationByElementName(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlMicroApplicationRepository.MyNexus#ApplicationRegistry#Domain#Repositories#IMicroApplicationRepository#SaveMicroApplication(System.String,MyNexus.ApplicationRegistry.Domain.Models.IMicroApplication)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlMicroApplicationRepository.SaveMicroApplication(System.String,MyNexus.ApplicationRegistry.Domain.Models.MicroApplication)">
+            <summary>
+              Saves a <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.MicroApplication"/> to the repository.
+            </summary>
+            <param name="tenantId">The id of the tenant.</param>
+            <param name="application">The <see cref="T:MyNexus.ApplicationRegistry.Domain.Models.MicroApplication"/> to save.</param>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.Repositories.SqlServiceDomainRepository">
+            <summary>
+              A sql server implementation of the <see cref="T:MyNexus.ApplicationRegistry.Domain.Repositories.IServiceDomainRepository"/>.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlServiceDomainRepository.#ctor(System.Data.IDbConnection,MyNexus.ApplicationRegistry.Data.TenantId)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.Repositories.SqlServiceDomainRepository"/> class.
+            </summary>
+            <param name="cnn">The <see cref="T:System.Data.IDbConnection"/> to use to execute queries.</param>
+            <param name="tenantId">The <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/>.</param>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlServiceDomainRepository.Add(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.Repositories.SqlServiceDomainRepository.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.ServiceCollectionExtensions.AddDataServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+              Adds the data layer services to the IoC container.
+            </summary>
+            <param name="services">The <seealso cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> object that is being extended.</param>
+            <param name="configuration">
+              An <seealso cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> object containing the application configuration settings.
+            </param>
+            <returns>Return the <seealso cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> object that is being extended.</returns>
+        </member>
+        <member name="T:MyNexus.ApplicationRegistry.Data.TenantId">
+            <summary>
+              An injectable tenant id, pulled from the route.
+            </summary>
+        </member>
+        <member name="M:MyNexus.ApplicationRegistry.Data.TenantId.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:MyNexus.ApplicationRegistry.Data.TenantId"/> class.
+            </summary>
+            <param name="value">The tenant id value.</param>
+        </member>
+        <member name="P:MyNexus.ApplicationRegistry.Data.TenantId.Value">
+            <summary>
+              Gets the value of the tenant id.
+            </summary>
+        </member>
+    </members>
+</doc>
