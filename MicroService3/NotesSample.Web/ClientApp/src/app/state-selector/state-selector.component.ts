@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StateSelectorService } from './state-selector.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { StateSelectorService } from './state-selector.service';
 })
 export class StateSelectorComponent implements OnInit {
 
-  constructor(private service: StateSelectorService, private element : ElementRef) { 
+  @Input('country') country = 'United States';
+  @Output('stateSelected') stateSelected = new EventEmitter<string>();
 
+  constructor(private service: StateSelectorService, private element : ElementRef) { 
     
   }
 
@@ -21,10 +23,11 @@ export class StateSelectorComponent implements OnInit {
   }
 
   public selectState(event): void {
-    this.element.nativeElement
-      .dispatchEvent(new CustomEvent('onchanged', {
-        detail: event.target.value,
-        bubbles: true
-      }));
+    this.stateSelected.emit(event.target.value);
+    // this.element.nativeElement
+    //   .dispatchEvent(new CustomEvent('onchanged', {
+    //     detail: event.target.value,
+    //     bubbles: true
+    //   }));
   }
 }

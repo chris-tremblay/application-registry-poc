@@ -44,9 +44,6 @@ MIT
 @angular/platform-browser-dynamic
 MIT
 
-@angular/router
-MIT
-
 bootstrap
 MIT
 The MIT License (MIT)

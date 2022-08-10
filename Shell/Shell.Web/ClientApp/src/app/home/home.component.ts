@@ -14,4 +14,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  stateSelected(e){
+    console.log(e);
+  }
 }
