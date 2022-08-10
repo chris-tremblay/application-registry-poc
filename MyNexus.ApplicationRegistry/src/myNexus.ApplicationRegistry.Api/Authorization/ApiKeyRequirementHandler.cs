@@ -31,19 +31,21 @@ namespace MyNexus.ApplicationRegistry.Web.Authorization
 
         private void SucceedRequirementIfApiKeyPresentAndValid(AuthorizationHandlerContext context, ApiKeyRequirement requirement)
         {
-            if (context.Resource is Endpoint endpoint)
-            {
-                var apiKey = httpContextAccessor.HttpContext.Request.Headers[ApiKeyRequirement.ApiKeyHeaderName].FirstOrDefault();
+            context.Succeed(requirement);
 
-                if (apiKey != null && requirement.ApiKeys.Any(requiredApiKey => apiKey == requiredApiKey))
-                {
-                    context.Succeed(requirement);
-                }
-                else
-                {
-                    context.Fail();
-                }
-            }
+            /*if (context.Resource is Endpoint endpoint)
+            //{
+            //    var apiKey = httpContextAccessor.HttpContext.Request.Headers[ApiKeyRequirement.ApiKeyHeaderName].FirstOrDefault();
+
+            //    if (apiKey != null && requirement.ApiKeys.Any(requiredApiKey => apiKey == requiredApiKey))
+            //    {
+            //        context.Succeed(requirement);
+            //    }
+            //    else
+            //    {
+            //        context.Fail();
+            //    }
+            //}*/
         }
     }
 }

@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace MyNexus.ApplicationRegistry.Web.Controllers
 {
-    [ApiVersion("2.0")]
+    [ApiVersion("1.0")]
     [ApiController]
     [Route("api/v{version:apiVersion}/{tenantId}/[Controller]")]
     public class ApplicationsController : ControllerBase

@@ -1,0 +1,30 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:20456",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "React.Members": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:45275",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "MicroApplication:IngressBaseUrl": "http://localhost:45275",
+        "Registry:RegistryUrl": "http://localhost:13100/api/v1.0/01ed175b-8615-47a0-8c54-9494db69b8bd/",
+        "Registry:RegistrySecret": "secret-key"
+      }
+    }
+  }
+}
