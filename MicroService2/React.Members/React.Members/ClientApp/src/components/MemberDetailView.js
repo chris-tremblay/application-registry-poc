@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes, { string } from "prop-types";
 
-export default class MemberDetailView extends Component {
+class MemberDetailView extends Component {
   static displayName = MemberDetailView.name;
+  static displayName2 = "displayName2";
+
+  static propTypes(){
+    return {
+      maxValue: PropTypes.number,
+      value: PropTypes.number,
+      onRatingUpdatedEvt: PropTypes.func
+    };
+  }
 
   constructor(props) {
     super(props);
@@ -46,8 +56,10 @@ export default class MemberDetailView extends Component {
   }
 
   async populateDetails() {
-    const response = await fetch('member');
+    const response = await fetch('http://localhost:45275/member');
     const data = await response.json();
     this.setState({ memberData: data, loading: false });
   }
 }
+
+export default MemberDetailView;

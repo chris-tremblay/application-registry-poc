@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "~4.6.1",
-    "jquery": "~3.6.0",
     "merge": "^2.1.1",
     "oidc-client": "~1.11.5",
     "prop-types": "^15.8.1",
@@ -13,7 +11,7 @@
     "react-router": "~5.2.1",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "~5.3.0",
-    "react-to-webcomponent": "^1.7.2",
+    "react-to-webcomponent": "^1.5.1",
     "reactstrap": "~8.10.1",
     "rimraf": "^3.0.2"
   },
