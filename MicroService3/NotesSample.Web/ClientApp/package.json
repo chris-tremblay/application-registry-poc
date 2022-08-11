@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "watch": "ng build NotesSample.Web --output-path ../wwwroot --delete-output-path=false --output-hashing none --extra-webpack-config webpack.partial.js --watch",
+    "watch:prod": "ng build --prod NotesSample.Web --output-path ../wwwroot --delete-output-path=false --output-hashing none --extra-webpack-config webpack.partial.js --watch",
     "build:dev": "ng build NotesSample.Web --output-path ../wwwroot --delete-output-path=false --output-hashing none --extra-webpack-config webpack.partial.js --watch"
   },
   "private": true,

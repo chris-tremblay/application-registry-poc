@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@ang
 import { StateSelectorService } from './state-selector.service';
 
 @Component({
-  selector: 'mnc-notes-state-selector',
+  selector: 'mnc-notes-state-selector-angular',
   templateUrl: './state-selector.component.html',
   styleUrls: ['./state-selector.component.css'],
   

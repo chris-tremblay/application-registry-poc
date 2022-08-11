@@ -4,7 +4,7 @@ export class ShellConfiguration {
         this.tenantId = '';
         this.registryUrl = '';
     }
-    defaultRoute: string;
+    defaultRoute: string = '';
     registryUrl: string;
     tenantId: string;
 }

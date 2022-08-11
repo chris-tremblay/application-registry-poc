@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ElementRegistryService } from './shared/services/element-registry.service';
+import { EmptyComponent } from './empty/empty.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { ElementRegistryService } from './shared/services/element-registry.servi
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    EmptyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,7 +30,8 @@ import { ElementRegistryService } from './shared/services/element-registry.servi
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-    ])
+      { path: '**', component: EmptyComponent }
+    ], { useHash: true })
   ],
   providers: [ElementRegistryService],
   bootstrap: [AppComponent],

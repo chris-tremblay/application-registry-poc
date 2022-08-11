@@ -1,12 +1,20 @@
-<h1>Member Details</h1>
+<h1>Member Details (React Application)</h1>
 <mnc-members-member-detail-view></mnc-members-member-detail-view>
 
-<h2>Edit Details</h2>
+<h2>Edit Details(Angular Application)</h2>
 
-<div class="row">
+<div class="row mt-5">
   <div>
     <label>State:</label>
   </div>
   
   <mnc-notes-state-selector (stateSelected)="stateSelected($event.detail)" country="Canada"></mnc-notes-state-selector>  
 </div>
+
+<h3 class="mt-5">
+  Composed Widget
+  <p style="font-size:1rem;font-weight:normal;color:#666;">
+    This widget is defined in the Notes service, but uses components from the Member (React) service.
+  </p>
+</h3>
+<mnc-notes-composed-widget></mnc-notes-composed-widget>
